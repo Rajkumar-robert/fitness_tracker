@@ -35,18 +35,12 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
             icon: Icon(Icons.edit_note),
             label: 'Daily Log',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
           BottomNavigationBarItem(
             icon: Icon(Icons.trending_up),
             label: 'Progress',
@@ -84,9 +78,8 @@ class HomeTab extends StatelessWidget {
                   children: [
                     Text(
                       'Welcome back!',
-                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.headlineSmall
+                          ?.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Text(
@@ -102,12 +95,12 @@ class HomeTab extends StatelessWidget {
             // Quick Stats
             Text(
               'Today\'s Overview',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            
+
             Row(
               children: [
                 Expanded(
@@ -130,7 +123,7 @@ class HomeTab extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            
+
             Row(
               children: [
                 Expanded(
@@ -157,12 +150,12 @@ class HomeTab extends StatelessWidget {
             // Quick Actions
             Text(
               'Quick Actions',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            
+
             ElevatedButton.icon(
               onPressed: () {
                 // Navigate to daily log
@@ -204,11 +197,7 @@ class _StatCard extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Icon(
-              icon,
-              color: color,
-              size: 32,
-            ),
+            Icon(icon, color: color, size: 32),
             const SizedBox(height: 8),
             Text(
               value,

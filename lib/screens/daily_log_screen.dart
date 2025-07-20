@@ -11,12 +11,8 @@ class _DailyLogScreenState extends State<DailyLogScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Daily Log'),
-      ),
-      body: const Center(
-        child: Text('Daily Log Screen'),
-      ),
+      appBar: AppBar(title: const Text('Daily Log')),
+      body: const Center(child: Text('Daily Log Screen')),
     );
   }
 }

@@ -39,10 +39,7 @@ class CustomInput extends StatelessWidget {
         hintText: hint,
         prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
         suffixIcon: suffixIcon != null
-            ? IconButton(
-                icon: Icon(suffixIcon),
-                onPressed: onSuffixIconPressed,
-              )
+            ? IconButton(icon: Icon(suffixIcon), onPressed: onSuffixIconPressed)
             : null,
         border: const OutlineInputBorder(),
       ),

@@ -1,6 +1,6 @@
 class SupabaseService {
   // TODO: Initialize Supabase client
-  
+
   // Authentication methods
   Future<void> signIn(String email, String password) async {
     // TODO: Implement sign in

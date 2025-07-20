@@ -11,12 +11,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Progress'),
-      ),
-      body: const Center(
-        child: Text('Progress Screen'),
-      ),
+      appBar: AppBar(title: const Text('Progress')),
+      body: const Center(child: Text('Progress Screen')),
     );
   }
 }

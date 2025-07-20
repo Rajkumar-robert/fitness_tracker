@@ -11,12 +11,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('History'),
-      ),
-      body: const Center(
-        child: Text('History Screen'),
-      ),
+      appBar: AppBar(title: const Text('History')),
+      body: const Center(child: Text('History Screen')),
     );
   }
 }
