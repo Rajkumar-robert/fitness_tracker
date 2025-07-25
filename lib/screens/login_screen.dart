@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fitness_tracker/screens/home_screen.dart';
+import 'package:fitness_tracker/screens/user_register_form.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -111,7 +112,12 @@ class _LoginScreenState extends State<LoginScreen> {
               // Sign Up Link
               TextButton(
                 onPressed: () {
-                  // TODO: Navigate to sign up screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const UserRegisterForm(),
+                    ),
+                  );
                 },
                 child: const Text('Don\'t have an account? Sign Up'),
               ),
