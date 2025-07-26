@@ -4,7 +4,12 @@ class DailyLog {
   final DateTime date;
   final String? exercises;
   final int? duration;
-  final int? calories;
+  final int? caloriesIn;
+  final int? caloriesBurnt;
+  final int? steps;
+  final double? weight;
+  final double? waterIntake;
+  final String? workoutOfTheDay;
   final String? notes;
   final DateTime createdAt;
   final DateTime updatedAt;
@@ -15,7 +20,12 @@ class DailyLog {
     required this.date,
     this.exercises,
     this.duration,
-    this.calories,
+    this.caloriesIn,
+    this.caloriesBurnt,
+    this.steps,
+    this.weight,
+    this.waterIntake,
+    this.workoutOfTheDay,
     this.notes,
     required this.createdAt,
     required this.updatedAt,
@@ -28,7 +38,12 @@ class DailyLog {
       'date': date.toIso8601String(),
       'exercises': exercises,
       'duration': duration,
-      'calories': calories,
+      'calories_in': caloriesIn,
+      'calories_burnt': caloriesBurnt,
+      'steps': steps,
+      'weight': weight,
+      'water_intake': waterIntake,
+      'workout_of_the_day': workoutOfTheDay,
       'notes': notes,
       'created_at': createdAt.toIso8601String(),
       'updated_at': updatedAt.toIso8601String(),
@@ -42,7 +57,12 @@ class DailyLog {
       date: DateTime.parse(json['date']),
       exercises: json['exercises'],
       duration: json['duration'],
-      calories: json['calories'],
+      caloriesIn: json['calories_in'],
+      caloriesBurnt: json['calories_burnt'],
+      steps: json['steps'],
+      weight: json['weight']?.toDouble(),
+      waterIntake: json['water_intake']?.toDouble(),
+      workoutOfTheDay: json['workout_of_the_day'],
       notes: json['notes'],
       createdAt: DateTime.parse(json['created_at']),
       updatedAt: DateTime.parse(json['updated_at']),
