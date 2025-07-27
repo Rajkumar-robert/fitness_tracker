@@ -176,4 +176,182 @@ class ChartData {
       },
     ];
   }
+
+  // Sample history data for fitness tracking
+  static List<Map<String, dynamic>> getHistoryData() {
+    return [
+      {
+        'date': DateTime(2025, 7, 26),
+        'caloriesIn': 2200,
+        'caloriesBurnt': 450,
+        'workout': 'Morning Cardio + Strength Training',
+        'weight': 46.1,
+        'steps': 8500,
+        'waterIntake': 2.3,
+      },
+      {
+        'date': DateTime(2025, 7, 25),
+        'caloriesIn': 2500,
+        'caloriesBurnt': 380,
+        'workout': 'Upper Body Workout',
+        'weight': 46.4,
+        'steps': 9200,
+        'waterIntake': 2.1,
+      },
+      {
+        'date': DateTime(2025, 7, 24),
+        'caloriesIn': 2250,
+        'caloriesBurnt': 520,
+        'workout': 'HIIT Training',
+        'weight': 46.0,
+        'steps': 12300,
+        'waterIntake': 2.8,
+      },
+      {
+        'date': DateTime(2025, 7, 23),
+        'caloriesIn': 2350,
+        'caloriesBurnt': 300,
+        'workout': 'Yoga & Stretching',
+        'weight': 46.2,
+        'steps': 6800,
+        'waterIntake': 2.0,
+      },
+      {
+        'date': DateTime(2025, 7, 22),
+        'caloriesIn': 2100,
+        'caloriesBurnt': 600,
+        'workout': 'Full Body Circuit Training',
+        'weight': 46.8,
+        'steps': 11500,
+        'waterIntake': 2.5,
+      },
+      {
+        'date': DateTime(2025, 7, 21),
+        'caloriesIn': 2400,
+        'caloriesBurnt': 420,
+        'workout': 'Swimming',
+        'weight': 46.3,
+        'steps': 4200,
+        'waterIntake': 2.2,
+      },
+      {
+        'date': DateTime(2025, 7, 20),
+        'caloriesIn': 2150,
+        'caloriesBurnt': 350,
+        'workout': 'Lower Body Workout',
+        'weight': 46.5,
+        'steps': 8900,
+        'waterIntake': 2.4,
+      },
+      {
+        'date': DateTime(2025, 7, 19),
+        'caloriesIn': 2450,
+        'caloriesBurnt': 480,
+        'workout': 'CrossFit Training',
+        'weight': 46.7,
+        'steps': 10200,
+        'waterIntake': 2.6,
+      },
+      {
+        'date': DateTime(2025, 7, 18),
+        'caloriesIn': 2300,
+        'caloriesBurnt': 290,
+        'workout': 'Rest Day - Light Walking',
+        'weight': 46.9,
+        'steps': 5500,
+        'waterIntake': 1.8,
+      },
+      {
+        'date': DateTime(2025, 7, 17),
+        'caloriesIn': 2180,
+        'caloriesBurnt': 540,
+        'workout': 'Running + Core Workout',
+        'weight': 47.0,
+        'steps': 13200,
+        'waterIntake': 3.0,
+      },
+      {
+        'date': DateTime(2025, 7, 16),
+        'caloriesIn': 2320,
+        'caloriesBurnt': 410,
+        'workout': 'Pilates',
+        'weight': 46.8,
+        'steps': 7800,
+        'waterIntake': 2.1,
+      },
+      {
+        'date': DateTime(2025, 7, 15),
+        'caloriesIn': 2280,
+        'caloriesBurnt': 470,
+        'workout': 'Bike Riding + Abs',
+        'weight': 46.6,
+        'steps': 9600,
+        'waterIntake': 2.7,
+      },
+      {
+        'date': DateTime(2025, 7, 14),
+        'caloriesIn': 2400,
+        'caloriesBurnt': 320,
+        'workout': 'Functional Training',
+        'weight': 46.4,
+        'steps': 8100,
+        'waterIntake': 2.3,
+      },
+      {
+        'date': DateTime(2025, 7, 13),
+        'caloriesIn': 2150,
+        'caloriesBurnt': 560,
+        'workout': 'Boot Camp',
+        'weight': 46.2,
+        'steps': 11800,
+        'waterIntake': 2.9,
+      },
+      {
+        'date': DateTime(2025, 7, 12),
+        'caloriesIn': 2350,
+        'caloriesBurnt': 380,
+        'workout': 'Weight Training',
+        'weight': 46.1,
+        'steps': 8700,
+        'waterIntake': 2.2,
+      },
+    ];
+  }
+
+  // Helper methods for history data
+  static String formatDate(DateTime date) {
+    final months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+    return '${date.day} ${months[date.month - 1]} ${date.year}';
+  }
+
+  static String formatShortDate(DateTime date) {
+    return '${date.day}/${date.month}/${date.year}';
+  }
+
+  static int getNetCalories(int caloriesIn, int caloriesBurnt) {
+    return caloriesIn - caloriesBurnt;
+  }
+
+  static Color getNetCalorieColor(int netCalories) {
+    if (netCalories > 2000) {
+      return Colors.green;
+    } else if (netCalories > 1500) {
+      return Colors.orange;
+    } else {
+      return Colors.red;
+    }
+  }
 }
