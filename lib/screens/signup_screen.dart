@@ -13,7 +13,8 @@ class _SignupScreenState extends State<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   bool _isLoading = false;
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
@@ -22,8 +23,7 @@ class _SignupScreenState extends State<SignupScreen> {
     if (value == null || value.isEmpty) {
       return 'Email is required';
     }
-    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}
-').hasMatch(value)) {
+    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}').hasMatch(value)) {
       return 'Please enter a valid email';
     }
     return null;
@@ -63,7 +63,10 @@ class _SignupScreenState extends State<SignupScreen> {
     });
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Signup successful! Please log in.'), backgroundColor: Colors.green),
+        const SnackBar(
+          content: Text('Signup successful! Please log in.'),
+          backgroundColor: Colors.green,
+        ),
       );
       Navigator.pushReplacement(
         context,
@@ -111,10 +114,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 const SizedBox(height: 8),
                 Text(
                   'Create your account to get started',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey[600],
-                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                 ),
                 const SizedBox(height: 32),
                 CustomInput(
@@ -132,7 +132,9 @@ class _SignupScreenState extends State<SignupScreen> {
                   controller: _passwordController,
                   obscureText: _obscurePassword,
                   prefixIcon: Icons.lock_outline,
-                  suffixIcon: _obscurePassword ? Icons.visibility : Icons.visibility_off,
+                  suffixIcon: _obscurePassword
+                      ? Icons.visibility
+                      : Icons.visibility_off,
                   onSuffixIconPressed: () {
                     setState(() {
                       _obscurePassword = !_obscurePassword;
@@ -147,7 +149,9 @@ class _SignupScreenState extends State<SignupScreen> {
                   controller: _confirmPasswordController,
                   obscureText: _obscureConfirmPassword,
                   prefixIcon: Icons.lock_outline,
-                  suffixIcon: _obscureConfirmPassword ? Icons.visibility : Icons.visibility_off,
+                  suffixIcon: _obscureConfirmPassword
+                      ? Icons.visibility
+                      : Icons.visibility_off,
                   onSuffixIconPressed: () {
                     setState(() {
                       _obscureConfirmPassword = !_obscureConfirmPassword;
@@ -175,7 +179,9 @@ class _SignupScreenState extends State<SignupScreen> {
                             width: 20,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                Colors.white,
+                              ),
                             ),
                           )
                         : const Text(
@@ -193,16 +199,15 @@ class _SignupScreenState extends State<SignupScreen> {
                   children: [
                     Text(
                       'Already have an account? ',
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 14,
-                      ),
+                      style: TextStyle(color: Colors.grey[600], fontSize: 14),
                     ),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => const LoginScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
                         );
                       },
                       child: const Text(
