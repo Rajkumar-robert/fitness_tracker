@@ -47,3 +47,28 @@ class UserApi {
     }
   }
 
+  // Update an existing user
+  Future<User> updateUser(String userId, User user) async {
+    final response = await http.put(
+      Uri.parse('$_baseUrl/$userId'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode(user.toJson()),
+    );
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = json.decode(response.body);
+      return User.fromJson(data);
+    } else {
+      throw Exception('Failed to update user');
+    }
+  }
+
+  // Delete a user by ID
+  Future<void> deleteUser(String userId) async {
+    final response = await http.delete(Uri.parse('$_baseUrl/$userId'));
+
+    if (response.statusCode != 204) {
+      throw Exception('Failed to delete user');
+    }
+  }
+}
