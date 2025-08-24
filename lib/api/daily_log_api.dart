@@ -81,3 +81,27 @@ class DailyLogApi {
     }
   }
 
+  // Update a daily log
+  Future<DailyLog> updateDailyLog(String logId, DailyLog log) async {
+    final response = await http.put(
+      Uri.parse('$_baseUrl/$logId'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode(log.toJson()),
+    );
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = json.decode(response.body);
+      return DailyLog.fromJson(data);
+    } else {
+      throw Exception('Failed to update daily log');
+    }
+  }
+
+  // Delete a daily log
+  Future<void> deleteDailyLog(String logId) async {
+    final response = await http.delete(Uri.parse('$_baseUrl/$logId'));
+    if (response.statusCode != 204) {
+      throw Exception('Failed to delete daily log');
+    }
+  }
+}
