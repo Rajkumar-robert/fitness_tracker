@@ -48,3 +48,22 @@ class DailyLog {
     );
   }
 }
+
+class DailyLogApi {
+  static const String _baseUrl =
+      'https://api.example.com/daily_logs'; // Replace with your API
+
+  // Fetch daily logs for a user
+  Future<List<DailyLog>> getDailyLogs(String userId) async {
+    final response = await http.get(Uri.parse('$_baseUrl?user_id=$userId'));
+
+    if (response.statusCode == 200) {
+      final List<dynamic> data = json.decode(response.body);
+      return data.map((json) => DailyLog.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed to load daily logs');
+    }
+  }
+
+
+}
