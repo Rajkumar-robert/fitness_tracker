@@ -65,5 +65,19 @@ class DailyLogApi {
     }
   }
 
+  // Add a new daily log
+  Future<DailyLog> addDailyLog(DailyLog log) async {
+    final response = await http.post(
+      Uri.parse(_baseUrl),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode(log.toJson()),
+    );
 
-}
+    if (response.statusCode == 201) {
+      final Map<String, dynamic> data = json.decode(response.body);
+      return DailyLog.fromJson(data);
+    } else {
+      throw Exception('Failed to add daily log');
+    }
+  }
+
