@@ -22,4 +22,29 @@ class DailyLog {
     required this.sleepHours,
   });
 
-  
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'user_id': userId,
+      'date': date.toIso8601String(),
+      'steps': steps,
+      'calories_consumed': caloriesConsumed,
+      'calories_burned': caloriesBurned,
+      'water_intake': waterIntake,
+      'sleep_hours': sleepHours,
+    };
+  }
+
+  factory DailyLog.fromJson(Map<String, dynamic> json) {
+    return DailyLog(
+      id: json['id'],
+      userId: json['user_id'],
+      date: DateTime.parse(json['date']),
+      steps: json['steps'],
+      caloriesConsumed: json['calories_consumed'],
+      caloriesBurned: json['calories_burned'],
+      waterIntake: (json['water_intake'] as num).toDouble(),
+      sleepHours: json['sleep_hours'],
+    );
+  }
+}
